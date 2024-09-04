@@ -1,7 +1,7 @@
 # Importar las librerías necesarias
 import discord
 from discord.ext import commands, tasks
-from flask import Flask
+from flask import Flask # type: ignore
 from threading import Thread
 import os
 
@@ -22,6 +22,7 @@ def keep_alive():
 # Inicia el bot de Discord
 intents = discord.Intents.default()
 intents.members = True  # Habilita el intent para manejar los miembros
+intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 AFK_CHANNEL_ID = 1280347057252728916  # Reemplaza con el ID de tu canal AFK
